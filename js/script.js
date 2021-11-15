@@ -28,7 +28,7 @@ var app = new Vue({
           {
               name: 'Michele',
               avatar: '_2',
-              visibile: false,
+              visibile: true,
               messages: [
                   {
                       date: '10/01/2020 15:30:55',
@@ -50,7 +50,7 @@ var app = new Vue({
           {
               name: 'Michele',
               avatar: '_3',
-              visibile: false,
+              visibile: true,
               messages: [
                   {
                       date: '10/01/2020 15:30:55',
@@ -69,11 +69,15 @@ var app = new Vue({
                   },
               ],
           },
-      ]
+      ],
+      //sostituire con -1 quando sviluppato meglio
+      activeMessage: 0,
+
     },
 
 
     methods:{
-
+        setActive(contactIndex){ this.activeMessage = contactIndex},
+        
     },
   })
