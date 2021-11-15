@@ -3,3 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.mp-main-background{
+    height: 100vh;
+    width: 100vw;
+    background-color: #249688;
+    background-image: linear-gradient(
+        #249688 0,
+        #249688 125px,
+        #dddbd0 125px,
+        #dddbd0,
+        #d3dbdc
+    );
+}
