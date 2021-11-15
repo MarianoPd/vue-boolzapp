@@ -2,9 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }
 
-.mp-main-background{
+#body-background{
     height: 100vh;
     width: 100vw;
     background-color: #249688;
@@ -15,4 +17,82 @@
         #dddbd0,
         #d3dbdc
     );
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#wrapper{
+    width: 85%;
+    min-width: 700px;
+    height: 95%;
+    min-height: 300px;
+    background-color: aquamarine;
+}
+
+.container{
+    height: 100%;   
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.left-cont{
+    max-width: 500px;
+    width: 30%;
+    background-color: white;
+    border-right: 1px solid #d5d6d6;
+}
+
+.right-cont{
+    min-width: 70%;
+    max-width: calc(100% - 500px);
+    background-image: url('../img/mine.jpg') ;
+}
+
+.sub-header{
+    height: 70px;
+    width: 100%;
+    background-color: #eaeaea;
+}
+
+.sub-main{
+    height: calc(100% - 70px);
+    width: 100%;
+}
+
+/* LATO SINISTRO */
+
+#contacts-selector{
+    height: 100%;
+}
+
+#notification{
+    height: 70px;
+    width: 100%;
+    background-color: #8edbfb;
+}
+
+#searchbar{
+    height: 40px;
+    width: calc(100% - 10px);
+    margin: 5px;
+    border: 1px solid #e9ebec;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contact-list{
+    height: calc(100% - 50px);
+    margin-right: 15px;    
+    border-right: 1px solid #e9ebec;
+}
+
+.contact-list .contact{
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #e9ebec;
+}
+
+
+/* LATO DESTRO */
