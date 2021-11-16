@@ -110,6 +110,7 @@ var app = new Vue({
 
     mounted(){
         this.getDate();
+        
     },
 
 
@@ -154,5 +155,6 @@ var app = new Vue({
             console.log(retDate);
             return retDate;
         },
+
     },
   })
