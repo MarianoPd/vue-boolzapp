@@ -89,18 +89,13 @@
                         </div>
                     </div>
                     <div class="sub-main">
-                        <div class="clearfix message sent ">
-                            <div>
-                                <h4>Ciao</h4>
+                        <div v-for="messaggio in contacts[activeContact].messages"
+                        class="message"
+                        :class="messaggio.status">
+                            <div class="clearfix">
+                                <h4>{{messaggio.message}}</h4>
                                 <span>15/11/2012 15:11:00</span>
                             </div>
-                        </div>
-                        <div class="clearfix message received">
-                            <div>
-                                <h4>Salve</h4>
-                                <span>15/11/2012 15:11:00</span>
-                            </div>
-                            
                         </div>
                     </div>
                     <div class="sub-footer">

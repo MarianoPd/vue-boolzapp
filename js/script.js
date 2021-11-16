@@ -47,7 +47,7 @@ var app = new Vue({
                     },
                     {
                         date: '20/03/2020 16:37:00',
-                        message: 'Ma allora cosa me lo dici a fare "Ci vediamo?',
+                        message: 'Ma allora cosa me lo dici a fare "Ci vediamo?" ?!',
                         status: 'sent'
                     }
                 ],
