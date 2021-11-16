@@ -62,9 +62,9 @@
                                 
                                 <div class="text">
                                     <h5>{{item.name}}</h5>
-                                    <span>Ultimo accesso: non sono fatti tuoi</span>
+                                    <span>{{getLastMessage(item)}}</span>
                                 </div>
-                                <span class="data">10/01/2020 16:15:22</span>
+                                <span class="data">{{item.messages[item.messages.length -1].date}}</span>
                             </div>
                         </div>
                     </div>
@@ -93,14 +93,16 @@
                         class="message"
                         :class="messaggio.status">
                             <div class="clearfix">
-                                <h4>{{messaggio.message}}</h4>
-                                <span>15/11/2012 15:11:00</span>
+                                <h5>{{messaggio.message}}</h5>
+                                <span>{{messaggio.date}}</span>
                             </div>
                         </div>
                     </div>
                     <div class="sub-footer">
                         <button class="btn dark"><i class="far fa-smile"></i></button>
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input v-model="newMessage"
+                        @keyup.enter="sendMessage()" 
+                        type="text" placeholder="Scrivi un messaggio">
                         <button class="btn dark"><i class="fas fa-microphone"></i></button>
                     </div>
                 </div>

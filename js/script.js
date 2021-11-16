@@ -102,14 +102,44 @@ var app = new Vue({
                 ],
             },
         ],
-        //sostituire con -1 quando sviluppato meglio
+        //in questo caso lo zero va bene
         activeContact: 0,
-
+        newMessage: '',
+        defaultResponse: 'ok',
     },
 
 
     methods:{
         setActive(contactIndex){ this.activeContact = contactIndex},
         
+        getLastMessage(contact){
+            let text = contact.messages[contact.messages.length - 1].message;
+            if(text.length > 30){
+                let temp = text.slice(0,29);
+                text = temp;
+                text += '...';
+            }   
+            return text;
+        },
+
+        sendMessage(){
+            const contact = this.contacts[this.activeContact];
+            contact.messages.push({
+                date: 'now',
+                message: this.newMessage,
+                status: 'sent',
+            });
+            this.newMessage = '';
+            setTimeout(() =>{ this.getResponse()},1000);
+        },
+
+        getResponse(){
+            const contact = this.contacts[this.activeContact];
+            contact.messages.push({
+                date: 'now',
+                message: this.defaultResponse,
+                status: 'received',
+            });
+        },
     },
   })
