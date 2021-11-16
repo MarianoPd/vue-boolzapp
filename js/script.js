@@ -106,6 +106,7 @@ var app = new Vue({
         activeContact: 0,
         newMessage: '',
         defaultResponse: 'ok',
+        searchedContact: '',
     },
 
     mounted(){
@@ -155,6 +156,14 @@ var app = new Vue({
             console.log(retDate);
             return retDate;
         },
+
+        showRequest(contact){
+            if(this.searchedContact === '' ) return true;
+            let contName = contact.name.toLowerCase();
+            let searCont = this.searchedContact.toLowerCase();
+            if(contName.includes(searCont)) return true;
+            return false;
+        }
 
     },
   })

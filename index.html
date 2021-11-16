@@ -48,10 +48,12 @@
                             <label for="searchB">
                                 <i class="fas fa-search"></i>
                             </label>
-                            <input type="text" name="searchB" placeholder="Cerca o inizia una nuova chat">
+                            <input v-model="searchedContact"
+                            type="text" name="searchB" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <div class="contact-list" >
                             <div v-for="(item,index) in contacts" 
+                            v-if="showRequest(item)"
                             class="contact clearfix"
                             :class="{'active' : index === activeContact }"
                             @click="setActive(index)">
@@ -69,8 +71,8 @@
                         </div>
                     </div>
                     </div>
-                </div><!--
-            --><div class="container right-cont">
+                </div>
+                <div class="container right-cont">
                     <div class="sub-header">
                         <div class="avatar">
                             <div class="round">
