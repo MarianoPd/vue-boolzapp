@@ -230,11 +230,14 @@
 .contact .text{
     float: left;
     max-width: 55%;
+    width: 40%;
+    min-height: 55px;
 }
 
 .contact .data{
     float: right;
-    
+    width: 40%; 
+    text-align: end;   
 }
 
 .contact.active{
