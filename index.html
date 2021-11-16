@@ -53,7 +53,7 @@
                         <div class="contact-list" >
                             <div v-for="(item,index) in contacts" 
                             class="contact clearfix"
-                            :class="{'active' : index === activeMessage }"
+                            :class="{'active' : index === activeContact }"
                             @click="setActive(index)">
                                 
                                 <div class="round">
@@ -61,7 +61,7 @@
                                 </div>
                                 
                                 <div class="text">
-                                    <h5>Nome Utente</h5>
+                                    <h5>{{item.name}}</h5>
                                     <span>Ultimo accesso: non sono fatti tuoi</span>
                                 </div>
                                 <span class="data">10/01/2020 16:15:22</span>
