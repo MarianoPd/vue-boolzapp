@@ -96,18 +96,24 @@
     font-size: 20px;
     border: 0;
     padding: 10px;
+    border-radius: 3px;
 }
 
 .btn.dark{
-    height: 100%;
-    width: 90px;
+    height: 50px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 25px;
     color: #6b7375;
-    padding: 0;
-    background-color: ;
+    padding: 0 ;
+    margin: 10px 30px;
+    background-color: inherit;
+}
+
+.btn.dark:hover{
+    background-color: #dadada;
 }
 
 .round{
@@ -166,31 +172,41 @@
 }
 
 #searchbar{
-    height: 40px;
-    width: calc(100% - 10px);
-    margin: 5px;
+    height: 36px;
+    width: calc(100% - 14px);
+    margin: 7px;
     border: 1px solid #e9ebec;
+    border-radius: 0px 5px 5px 0;
     display: flex;
     align-items: center;
 }
 
-#searchbar > div{
+#searchbar > label{
     height: 100%;
-    width: 70px;
+    width: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #b0b1b1;
 }
 
 #searchbar > input{
-    width: 80%;
+    width: 85%;
+    height: 100%;
     border: 0;
+    border-left: 0;
+    border-radius: inherit;
+}
+
+#searchbar > input:focus{
+    outline: 2px solid #5ecaf8; 
+    border-left: none;
 }
 
 .contact-list{
-    height: calc(100% - 50px);
-    margin-right: 15px;    
+    height: calc(100% - 50px);    
     border-right: 1px solid #e9ebec;
+    overflow-y: scroll;
 }
 
 .contact-list .contact{
@@ -233,6 +249,7 @@
     height: calc(100% - 70px - 70px);
     background-image: url('../img/mine.jpg') ;
     padding: 40px 80px;
+    overflow-y: scroll;
 }
 
 .message{
@@ -282,4 +299,8 @@
     border: 0;
     border-radius: 5px;
     padding-left: 15px;
+}
+
+.sub-footer > input:focus{
+    outline:2px solid #5ecaf8;
 }
