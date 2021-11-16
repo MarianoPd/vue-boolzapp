@@ -108,6 +108,10 @@ var app = new Vue({
         defaultResponse: 'ok',
     },
 
+    mounted(){
+        this.getDate();
+    },
+
 
     methods:{
         setActive(contactIndex){ this.activeContact = contactIndex},
@@ -125,7 +129,7 @@ var app = new Vue({
         sendMessage(){
             const contact = this.contacts[this.activeContact];
             contact.messages.push({
-                date: 'now',
+                date: this.getDate(),
                 message: this.newMessage,
                 status: 'sent',
             });
@@ -136,10 +140,19 @@ var app = new Vue({
         getResponse(){
             const contact = this.contacts[this.activeContact];
             contact.messages.push({
-                date: 'now',
+                date: this.getDate(),
                 message: this.defaultResponse,
                 status: 'received',
             });
+        },
+
+        getDate(){
+            const date = new Date;
+            let retDate = date.getDate() +'/'+ date.getMonth() +'/'+ date.getFullYear();
+            retDate += ' ' +date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+            console.log(date);
+            console.log(retDate);
+            return retDate;
         },
     },
   })
