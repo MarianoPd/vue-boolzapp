@@ -63,10 +63,12 @@
                                 </div>
                                 
                                 <div class="text">
-                                    <h5>{{item.name}}</h5>
-                                    <span>{{getLastMessage(item)}}</span>
+                                    <p>{{item.name}}</p>
+                                    <span class="data">{{getLastDate(item)}}</span>
+                                    <span class="last-msg">{{getLastMessage(item)}}</span>
+                                    
                                 </div>
-                                <span class="data">{{item.messages[item.messages.length -1].date}}</span>
+                                
                             </div>
                         </div>
                     </div>
@@ -91,11 +93,21 @@
                         </div>
                     </div>
                     <div class="sub-main">
-                        <div v-for="messaggio in contacts[activeContact].messages"
+                        <div v-for="(messaggio, index) in contacts[activeContact].messages"
                         class="message"
                         :class="messaggio.status">
                             <div class="clearfix">
-                                <h5>{{messaggio.message}}</h5>
+                                <p>{{messaggio.message}}</p>
+                                <div class="drop-down">
+                                    <div class="drop-down-click">
+                                        <i @click="showMenu(index)" class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="drop-down-menu">
+                                        <div><span>Message Info</span></div>
+                                        <div @click="removeMsg(index)"><span>Delete Message</span></div>
+                                    </div>
+                                </div>
+                                
                                 <span>{{messaggio.date}}</span>
                             </div>
                         </div>

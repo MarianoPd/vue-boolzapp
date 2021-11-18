@@ -229,12 +229,20 @@
 
 .contact .text{
     float: left;
-    max-width: 55%;
-    width: 40%;
+    width: calc(100% - 75px);
     min-height: 55px;
 }
 
-.contact .data{
+.text p {
+    
+    width: 25%;
+    display: inline-block;
+}
+.text .last-msg{
+    display: block;
+    margin-top: 5px;
+}
+.text .data{
     float: right;
     width: 40%; 
     text-align: end;   
@@ -274,6 +282,12 @@
     max-width: 290px;
     border-radius: 10px;
     padding: 15px 7px 5px 15px;
+    position: relative;
+}
+
+.message div:hover .drop-down{
+    display: inline-block;
+    cursor: pointer;
 }
 
 .message.sent > div{
@@ -282,6 +296,56 @@
 
 .message.received >div{
     background-color: white;
+}
+
+.message > div p{
+    width: 60%;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.message  .drop-down{
+    position: absolute;
+    right: 0;
+    display: none;
+    padding-right: 10px;
+    width: 180px;
+    z-index: 99;
+}
+
+.drop-down .drop-down-click{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 5px;
+    color: #b0b1b1;
+}
+
+.show-menu{
+    
+    display: inline-block !important;
+}
+
+.drop-down .drop-down-menu{
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    display: none;
+}
+
+.drop-down-menu div{
+    height: 40px;
+    padding: 10px 25px;
+    
+}
+
+.drop-down-menu div:hover{
+    background-color: #dadada;
+}
+
+.drop-down-menu div span{
+    font-weight: 500;
+    color: #4e4e4e;
 }
 
 .message > div > span{

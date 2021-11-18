@@ -110,7 +110,7 @@ var app = new Vue({
     },
 
     mounted(){
-        this.getDate();
+        //this.getDate();
         
     },
 
@@ -118,18 +118,30 @@ var app = new Vue({
     methods:{
         setActive(contactIndex){ this.activeContact = contactIndex},
         
+        getLastDate(contact){
+            if(!(contact.messages.length === 0)){
+                let date = contact.messages[contact.messages.length - 1].date;
+                return date;
+            }
+            
+        },
+
         getLastMessage(contact){
-            let text = contact.messages[contact.messages.length - 1].message;
-            if(text.length > 30){
-                let temp = text.slice(0,29);
-                text = temp;
-                text += '...';
-            }   
-            return text;
+            if(!(contact.messages.length === 0)){
+                let text = contact.messages[contact.messages.length - 1].message;
+                if(text.length > 30){
+                    let temp = text.slice(0,30);
+                    text = temp;
+                    text += '...';
+                }   
+                return text;
+            }
+            return 'Nessun Messaggio';
         },
 
         sendMessage(){
             const contact = this.contacts[this.activeContact];
+            if(this.newMessage === '') return;
             contact.messages.push({
                 date: this.getDate(),
                 message: this.newMessage,
@@ -152,8 +164,8 @@ var app = new Vue({
             const date = new Date;
             let retDate = date.getDate() +'/'+ date.getMonth() +'/'+ date.getFullYear();
             retDate += ' ' +date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-            console.log(date);
-            console.log(retDate);
+            //console.log(date);
+            //console.log(retDate);
             return retDate;
         },
 
@@ -163,6 +175,33 @@ var app = new Vue({
             let searCont = this.searchedContact.toLowerCase();
             if(contName.includes(searCont)) return true;
             return false;
+        },
+
+        showMenu(index){
+            const message = document.getElementsByClassName("message");
+            const dropDM = message[index].getElementsByClassName("drop-down-menu")[0];
+            if(dropDM.classList.contains('show-menu')){
+                dropDM.classList.remove('show-menu');
+                return;
+            }
+            dropDM.classList.add('show-menu');
+            //console.log(index);
+            //console.log(dropDM);
+
+            dropDM.addEventListener('mouseleave', ()=>{
+                setTimeout(()=>{
+                    dropDM.classList.remove('show-menu');
+                },1000);
+            });
+
+        },
+
+        removeMsg(index){
+            console.log(index);
+            const msgList = this.contacts[this.activeContact].messages;
+            msgList.splice(index, 1);
+            console.log(msgList);
+            console.log(index);
         }
 
     },
