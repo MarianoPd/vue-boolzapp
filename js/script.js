@@ -116,8 +116,9 @@ var app = new Vue({
 
 
     methods:{
+        //imposta come contatto attivo il contatto con contactIndex
         setActive(contactIndex){ this.activeContact = contactIndex},
-        
+        //ritorna la data dell'ultimo messaggio di contact
         getLastDate(contact){
             if(!(contact.messages.length === 0)){
                 let date = contact.messages[contact.messages.length - 1].date;
@@ -125,7 +126,7 @@ var app = new Vue({
             }
             
         },
-
+        //ritorna il testo accorciato dell'ultimo messaggio di contact 
         getLastMessage(contact){
             if(!(contact.messages.length === 0)){
                 let text = contact.messages[contact.messages.length - 1].message;
@@ -139,6 +140,9 @@ var app = new Vue({
             return 'Nessun Messaggio';
         },
 
+        //inserisce un nuovo messaggio nei messaggi del contatto attivo
+        //prende il testto da newMessage e la data di ora
+        //richiede una riscposta con getResponse
         sendMessage(){
             const contact = this.contacts[this.activeContact];
             if(this.newMessage === '') return;
@@ -151,6 +155,7 @@ var app = new Vue({
             setTimeout(() =>{ this.getResponse()},1000);
         },
 
+        //inserisce un messaggio nei messaggi del contatto attivo con il testo di defaultResponse
         getResponse(){
             const contact = this.contacts[this.activeContact];
             contact.messages.push({
@@ -160,6 +165,8 @@ var app = new Vue({
             });
         },
 
+
+        //ritorna una stringa con data e ora istantanee 
         getDate(){
             const date = new Date;
             let retDate = date.getDate() +'/'+ date.getMonth() +'/'+ date.getFullYear();
@@ -169,6 +176,7 @@ var app = new Vue({
             return retDate;
         },
 
+        //ritorna true se il contatto è tra quelli cercati 
         showRequest(contact){
             if(this.searchedContact === '' ) return true;
             let contName = contact.name.toLowerCase();
@@ -177,6 +185,8 @@ var app = new Vue({
             return false;
         },
 
+        //rende visibile il dropdown menu del messaggio con indice index
+        //aggiunge un event listener che nasconde il menu quando non in uso 
         showMenu(index){
             const message = document.getElementsByClassName("message");
             const dropDM = message[index].getElementsByClassName("drop-down-menu")[0];
@@ -196,6 +206,7 @@ var app = new Vue({
 
         },
 
+        //rimuove dai messaggi del contatto attivo il messaggio con indice index
         removeMsg(index){
             console.log(index);
             const msgList = this.contacts[this.activeContact].messages;
