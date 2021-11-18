@@ -34,6 +34,7 @@
     align-items: center;
 }
 
+/* contenitori principali */
 #wrapper{
     width: 85%;
     min-width: 950px;
@@ -90,7 +91,7 @@
     padding-right: 10px;
 }
 
-
+/* classi per i button */
 .btn{
     color: #b0b1b1;
     font-size: 20px;
@@ -120,6 +121,8 @@
 .btn.dark:hover{
     background-color: #dadada;
 }
+
+/* classi per foto avatar nome ed eventuale testo */
 
 .round{
     width: 55px;
@@ -154,6 +157,8 @@
     height: calc(100% - 70px);
 }
 
+
+/* barra di notifica e suoi elementi */
 #notification{
     height: 70px;
     width: 100%;
@@ -176,6 +181,8 @@
     text-decoration: underline;
 }
 
+
+/* searchbar e suoi elementi */
 #searchbar{
     height: 36px;
     width: calc(100% - 14px);
@@ -217,6 +224,9 @@
     border-left: none;
 }
 
+
+
+/* lista dei contatti */
 .contact-list{
     height: calc(100% - 50px);    
     border-right: 1px solid #e9ebec;
@@ -228,6 +238,14 @@
     min-height: 80px;
     border-top: 1px solid #e9ebec;
     padding: 10px 10px 0 15px;;
+}
+
+.contact.active{
+    background-color: #e9eaea;
+}
+
+.contact:hover{
+    background-color: #f4f5f5;
 }
 
 .contact span{
@@ -262,13 +280,6 @@
     text-align: end;   
 }
 
-.contact.active{
-    background-color: #e9eaea;
-}
-
-.contact:hover{
-    background-color: #f4f5f5;
-}
 
 
 /* LATO DESTRO */
@@ -280,6 +291,7 @@
     overflow-y: scroll;
 }
 
+/* messaggi */
 .message{
     width: 100%;
     padding: 5px;
@@ -318,6 +330,7 @@
     font-weight: 500;
 }
 
+/* dropdown dei messaggi */
 .message  .drop-down{
     position: absolute;
     right: 0;
@@ -334,8 +347,8 @@
     color: #b0b1b1;
 }
 
+/* classe chiamata da showMenu per mostrare il menu */
 .show-menu{
-    
     display: inline-block !important;
 }
 
@@ -362,12 +375,15 @@
     color: #4e4e4e;
 }
 
+/* usato per la data del meddaggio */
 .message > div > span{
     display: block;
     font-size: 12px;
     color: #b5b9bb;
     float: right;
 }
+
+/* footer del lato destro */
 
 .sub-footer{
     height: 70px;

@@ -1,3 +1,5 @@
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 var app = new Vue({
     el: '#app',
 
@@ -167,13 +169,17 @@ var app = new Vue({
 
 
         //ritorna una stringa con data e ora istantanee 
-        getDate(){
+        /*getDate(){
             const date = new Date;
             let retDate = date.getDate() +'/'+ date.getMonth() +'/'+ date.getFullYear();
             retDate += ' ' +date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
             //console.log(date);
             //console.log(retDate);
             return retDate;
+        },*/
+
+        getDate(){
+            return dayjs().format("DD/MM/YYYY HH:mm:ss");
         },
 
         //ritorna true se il contatto è tra quelli cercati 

@@ -48,10 +48,12 @@
                             <label for="searchB">
                                 <i class="fas fa-search"></i>
                             </label>
+                            <!-- carica nel vue data il nome cercato -->
                             <input v-model="searchedContact"
                             type="text" name="searchB" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <div class="contact-list" >
+                            <!-- crea gli elementi contact ma li mostra solo se sono stati cercati o non è stata fatta una ricerca, se viene cliccato cambia colore e viene impostato come il contatto attivo -->
                             <div v-for="(item,index) in contacts" 
                             v-if="showRequest(item)"
                             class="contact clearfix"
@@ -93,6 +95,7 @@
                         </div>
                     </div>
                     <div class="sub-main">
+                        <!-- crea i messaggi sulla base di messages del contatto attivo, usa il valore di status per aggiungere la classe con lo stesso valore (sent -> .sent) -->
                         <div v-for="(messaggio, index) in contacts[activeContact].messages"
                         class="message"
                         :class="messaggio.status">
@@ -100,10 +103,12 @@
                                 <p>{{messaggio.message}}</p>
                                 <div class="drop-down">
                                     <div class="drop-down-click">
+                                        <!-- cliccando qui mostra il menu dropdown -->
                                         <i @click="showMenu(index)" class="fas fa-chevron-down"></i>
                                     </div>
                                     <div class="drop-down-menu">
                                         <div><span>Message Info</span></div>
+                                        <!-- cliccando qui si viene cancellato il messaggio -->
                                         <div @click="removeMsg(index)"><span>Delete Message</span></div>
                                     </div>
                                 </div>
@@ -114,6 +119,7 @@
                     </div>
                     <div class="sub-footer">
                         <button class="btn dark"><i class="far fa-smile"></i></button>
+                        <!-- quello che è scritto qui viene inserito nei data e clickando enter viene ne creato un messaggio -->
                         <input v-model="newMessage"
                         @keyup.enter="sendMessage()" 
                         type="text" placeholder="Scrivi un messaggio">
@@ -124,8 +130,8 @@
         </div>
     </div>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/customParseFormat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="js/script.js"></script>
 </body>
